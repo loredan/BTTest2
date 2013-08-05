@@ -41,7 +41,7 @@ public class ChatActivity extends Activity
             {
                 Log.i("Chat", "Message handler");
                 TextView message = new TextView(getApplicationContext());
-                message.setText((CharSequence) msg.obj);
+                message.setText((CharSequence) new String((byte[]) msg.obj, 0, msg.arg1));
                 message.setGravity(Gravity.LEFT);
                 history.addView(message);
                 Log.i("Chat", "Message handled");
