@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/btn_send" android:layout_alignParentRight="true" android:layout_alignParentBottom="true"
+            android:onClick="sendMsg"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_msg" android:layout_toLeftOf="@+id/btn_send" android:layout_alignTop="@+id/btn_send"
+            android:layout_alignParentLeft="true"/>
+    <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView" android:layout_alignLeft="@+id/et_msg" android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/btn_send" android:layout_above="@+id/btn_send">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:id="@+id/ll_history">
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
