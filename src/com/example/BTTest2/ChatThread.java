@@ -41,10 +41,13 @@ public class ChatThread extends Thread
         int bytes;
         while(true)
         {
+            Log.i("Read", "Begin");
             try
             {
                 bytes = in.read(buffer);
-                handler.obtainMessage(Ref.INCOMING_MESSAGE, bytes, 0, buffer);
+                handler.obtainMessage(Ref.INCOMING_MESSAGE, bytes, 0, buffer).sendToTarget();
+                Log.i("Read", "Success");
+                Log.d("buffer", buffer.toString());
             } catch (IOException e)
             {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
@@ -54,9 +57,11 @@ public class ChatThread extends Thread
 
     public void write(String msg)
     {
+        Log.i("Send", "Begin");
         try
         {
             out.write(msg.getBytes());
+            Log.i("Send", "Success");
         } catch (IOException e)
         {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
